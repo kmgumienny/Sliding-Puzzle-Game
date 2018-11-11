@@ -23,9 +23,13 @@ public class Puzzle {
 	 *  |6 5 x 7|
 	 *  |8 8 9 9|
 	 */
-	public Puzzle() {
+	public Puzzle(boolean isOneMoveAway) {
+		
+		
 		selected = null;
 		//PuzzlePiece constructor (int width, int height)
+		
+		
 		
 		//1x1 piece
 		PuzzlePiece piece0 = new PuzzlePiece(1, 1);
@@ -45,67 +49,153 @@ public class Puzzle {
 		//Key piece
 		PuzzlePiece piece1 = new PuzzlePiece(2, 2);
 		
-		//First row
-		board.add(piece0);
-		board.add(piece1);
-		board.add(piece1);
-		board.add(piece2);
-		
-		//Second row
-		board.add(piece3);
-		board.add(piece1);
-		board.add(piece1);
-		board.add(piece4);
+		if(isOneMoveAway) {
+			//fifth row
+			board.add(piece8);
+			board.add(piece8);
+			board.add(piece9);
+			board.add(piece9);
 			
-		//Third row
-		board.add(piece3);
-		board.add(piece5);
-		board.add(null);
-		board.add(piece4);
-		
-		//Fourth row
-		board.add(piece6);
-		board.add(piece5);
-		board.add(null);
-		board.add(piece7);
-		
-		//Fourth row
-		board.add(piece8);
-		board.add(piece8);
-		board.add(piece9);
-		board.add(piece9);
-		
-		//First row
-		original.add(piece0);
-		original.add(piece1);
-		original.add(piece1);
-		original.add(piece2);
-				
-		//Second row
-		original.add(piece3);
-		original.add(piece1);
-		original.add(piece1);
-		original.add(piece4);
-				
-		//Third row
-		original.add(piece3);
-		original.add(piece5);
-		original.add(null);
-		original.add(piece4);
-		
-		//Fourth row
-		original.add(piece6);
-		original.add(piece5);
-		original.add(null);
-		original.add(piece7);
-				
-		//Fourth row
-		original.add(piece8);
-		original.add(piece8);
-		original.add(piece9);
-		original.add(piece9);
+			//Fourth row
+			board.add(piece6);
+			board.add(piece5);
+			board.add(null);
+			board.add(piece7);
+			
+			//Third row
+			board.add(piece3);
+			board.add(piece5);
+			board.add(null);
+			board.add(piece4);
+			
+			//Second row
+			board.add(piece3);
+			board.add(piece1);
+			board.add(piece1);
+			board.add(piece4);
 
+			//First row
+			board.add(piece0);
+			board.add(piece1);
+			board.add(piece1);
+			board.add(piece2);
+			
+			board.add(null);
+			board.add(null);
+			board.add(null);
+			board.add(null);
+
+			
+			//Fifth row
+			original.add(piece8);
+			original.add(piece8);
+			original.add(piece9);
+			original.add(piece9);
+					
+			//Fourth row
+			original.add(piece6);
+			original.add(piece5);
+			original.add(null);
+			original.add(piece7);
+					
+			//Third row
+			original.add(piece3);
+			original.add(piece5);
+			original.add(null);
+			original.add(piece4);
+							
+			//Second row
+			original.add(piece3);
+			original.add(piece1);
+			original.add(piece1);
+			original.add(piece4);
+					
+			//First row
+			original.add(piece0);
+			original.add(piece1);
+			original.add(piece1);
+			original.add(piece2);
+			
+			original.add(null);
+			original.add(null);
+			original.add(null);
+			original.add(null);
+		}else {
+		
+			//First row
+			board.add(piece0);
+			board.add(piece1);
+			board.add(piece1);
+			board.add(piece2);
+		
+			//Second row
+			board.add(piece3);
+			board.add(piece1);
+			board.add(piece1);
+			board.add(piece4);
+			
+			//Third row
+			board.add(piece3);
+			board.add(piece5);
+			board.add(null);
+			board.add(piece4);
+		
+			//Fourth row
+			board.add(piece6);
+			board.add(piece5);
+			board.add(null);
+			board.add(piece7);
+		
+			//Fourth row
+			board.add(piece8);
+			board.add(piece8);
+			board.add(piece9);
+			board.add(piece9);
+		
+			board.add(null);
+			board.add(null);
+			board.add(null);
+			board.add(null);
+		
+			//First row
+			original.add(piece0);
+			original.add(piece1);
+			original.add(piece1);
+			original.add(piece2);
+				
+			//Second row
+			original.add(piece3);
+			original.add(piece1);
+			original.add(piece1);
+			original.add(piece4);
+				
+			//Third row
+			original.add(piece3);
+			original.add(piece5);
+			original.add(null);
+			original.add(piece4);
+		
+			//Fourth row
+			original.add(piece6);
+			original.add(piece5);
+			original.add(null);
+			original.add(piece7);
+				
+			//Fourth row
+			original.add(piece8);
+			original.add(piece8);
+			original.add(piece9);
+			original.add(piece9);
+
+			original.add(null);
+			original.add(null);
+			original.add(null);
+			original.add(null);
+		
+		}
 	}
+	
+	
 	//TODO
 	public PuzzlePiece cell(int r, int c) {
 		return this.board.get((r*4)+c);

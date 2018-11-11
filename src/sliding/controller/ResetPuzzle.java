@@ -14,10 +14,8 @@ public class ResetPuzzle {
 	}
 	
 	public void reset() {
-		System.out.println("Hit Reset");
 		this.model.newPuzzle();
-		this.app.updateMoves();
-		System.out.println(this.model.getMoves());
+		this.app.reset();
 		this.app.repaint();
 	}
 	

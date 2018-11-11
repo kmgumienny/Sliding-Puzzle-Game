@@ -6,18 +6,13 @@ public class Model {
 	int moves;
 	
 	public Model() {
-		this.puzzle = new Puzzle();
+		this.puzzle = new Puzzle(true);
 		this.moves = 0;
 	}
 	
 	public Puzzle getPuzzle() {
 		return this.puzzle;
 	}
-	
-	public void setPuzzle(Puzzle puzzle) {
-		this.puzzle = puzzle;
-	}
-	
 	
 	public void newPuzzle() {
 		this.puzzle.resetPuzzle();

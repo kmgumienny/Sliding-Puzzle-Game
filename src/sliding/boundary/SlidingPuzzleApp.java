@@ -1,11 +1,9 @@
 package sliding.boundary;
 
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseListener;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -13,12 +11,10 @@ import javax.swing.border.EmptyBorder;
 
 import sliding.controller.*;
 import sliding.model.Model;
-import sliding.model.PuzzlePiece;
 
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import java.awt.Dimension;
-import java.awt.Color;
 import javax.swing.JButton;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JLabel;
@@ -31,16 +27,33 @@ public class SlidingPuzzleApp extends JFrame {
 	
 	JButton up, down, right, left, reset;
 	
-	JLabel moves;
-	
+	JLabel moves, winLabel;
+
+
 	
 	public PuzzleView getPuzzleView() {
 		return puzzleView;
 	}
 	
+	public void reset() {
+		this.up.setEnabled(true);
+		this.down.setEnabled(true);
+		this.left.setEnabled(true);
+		this.right.setEnabled(true);
+		this.winLabel.setVisible(false);
+		updateMoves();
+	}
 	
 	public void updateMoves() {
 		this.moves.setText(Integer.toString(model.getMoves()));
+	}
+	
+	public void gameWin() {
+		this.winLabel.setVisible(true);
+		this.up.setEnabled(false);
+		this.down.setEnabled(false);
+		this.left.setEnabled(false);
+		this.right.setEnabled(false);
 	}
 
 	
@@ -70,6 +83,8 @@ public class SlidingPuzzleApp extends JFrame {
 		});
 		
 		this.moves = new JLabel(Integer.toString(model.getMoves()));
+		this.winLabel = new JLabel("<html> Congratulations! <br> You won \n the game champ! </html>");
+		this.winLabel.setVisible(false);
 		
 		this.down = new JButton("v");
 		this.down.addActionListener(new ActionListener() {
@@ -96,6 +111,9 @@ public class SlidingPuzzleApp extends JFrame {
 			}
 		});
 		
+		
+		
+		
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
@@ -103,27 +121,33 @@ public class SlidingPuzzleApp extends JFrame {
 					.addContainerGap()
 					.addComponent(puzzleView, GroupLayout.PREFERRED_SIZE, 337, GroupLayout.PREFERRED_SIZE)
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_contentPane.createSequentialGroup()
-							.addGap(33)
-							.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
-								.addGroup(gl_contentPane.createSequentialGroup()
-									.addComponent(left)
-									.addGap(33)
-									.addComponent(right))
-								.addGroup(gl_contentPane.createSequentialGroup()
-									.addComponent(reset)
-									.addGap(15))))
-						.addGroup(gl_contentPane.createSequentialGroup()
-							.addGap(79)
-							.addComponent(down))
-						.addGroup(gl_contentPane.createSequentialGroup()
-							.addGap(18)
-							.addComponent(moves)
-							.addGap(18)
-							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-								.addComponent(up)
-								.addComponent(moves))))
-					.addContainerGap(31, Short.MAX_VALUE))
+						.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+							.addGroup(gl_contentPane.createSequentialGroup()
+								.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+									.addGroup(gl_contentPane.createSequentialGroup()
+										.addGap(33)
+										.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
+											.addGroup(gl_contentPane.createSequentialGroup()
+												.addComponent(reset))
+											.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+												.addComponent(winLabel, GroupLayout.PREFERRED_SIZE, 168, GroupLayout.PREFERRED_SIZE)
+												.addGroup(gl_contentPane.createSequentialGroup()
+													.addComponent(left)
+													.addGap(33)
+													.addComponent(right)))))
+									.addGroup(gl_contentPane.createSequentialGroup()
+										.addGap(18)
+										.addComponent(moves)
+										.addGap(18)))
+								.addContainerGap(31, Short.MAX_VALUE))
+							.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
+								.addPreferredGap(ComponentPlacement.RELATED)
+								.addComponent(down)
+								.addGap(80)))
+						.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
+							.addPreferredGap(ComponentPlacement.RELATED)
+							.addComponent(up)
+							.addGap(80))))
 		);
 		gl_contentPane.setVerticalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
@@ -133,9 +157,10 @@ public class SlidingPuzzleApp extends JFrame {
 						.addComponent(puzzleView, GroupLayout.DEFAULT_SIZE, 556, Short.MAX_VALUE)
 						.addGroup(gl_contentPane.createSequentialGroup()
 							.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
-								.addComponent(moves)
 								.addComponent(moves))
-							.addGap(189)
+							.addGap(59)
+							.addComponent(winLabel, GroupLayout.PREFERRED_SIZE, 76, GroupLayout.PREFERRED_SIZE)
+							.addGap(54)
 							.addComponent(up)
 							.addPreferredGap(ComponentPlacement.UNRELATED)
 							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)

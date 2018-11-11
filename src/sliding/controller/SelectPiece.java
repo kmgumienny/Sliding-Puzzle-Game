@@ -21,7 +21,6 @@ public class SelectPiece extends MouseAdapter {
 		LinkedList<Integer> widthByHeight = this.app.getPuzzleView().getPieceSize();
 		int row = (e.getY() - offSet) / (widthByHeight.getLast() + offSet);
 		int column = (e.getX() - offSet) / (widthByHeight.getFirst() + offSet);
-		System.out.println(4*row + column + " "+ row +" "+ column);
 		this.model.getPuzzle().setSelected(4*row + column);
 		this.app.repaint();
 	}

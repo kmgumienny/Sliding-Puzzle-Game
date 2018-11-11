@@ -44,6 +44,7 @@ public class MovePiece {
 			if(direction.equals("v")) {
 				if((selected.getHeight() == 2 && selected.getWidth() == 2) && instances.getFirst() == 13) {
 					makeMove(selected, board, instances, 4, true);
+					app.gameWin();
 					
 				}
 				if(bottom) {
