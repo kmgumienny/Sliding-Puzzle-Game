@@ -7,8 +7,7 @@ public class Model {
 	
 	public Model() {
 		this.puzzle = new Puzzle();
-		//CHANGE THIS TO 0
-		this.moves = 1;
+		this.moves = 0;
 	}
 	
 	public Puzzle getPuzzle() {
@@ -19,7 +18,9 @@ public class Model {
 		this.puzzle = puzzle;
 	}
 	
-	public void resetMoves() {
+	
+	public void newPuzzle() {
+		this.puzzle.resetPuzzle();
 		this.moves=0;
 	}
 	

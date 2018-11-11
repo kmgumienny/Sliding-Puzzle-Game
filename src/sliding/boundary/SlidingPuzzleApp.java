@@ -38,13 +38,11 @@ public class SlidingPuzzleApp extends JFrame {
 		return puzzleView;
 	}
 	
-	public void resetPuzzle(Model model) {
-		this.model = model;
-	}
 	
-	public void resetMoves() {
+	public void updateMoves() {
 		this.moves.setText(Integer.toString(model.getMoves()));
 	}
+
 	
 	
 	public SlidingPuzzleApp(Model model) {
