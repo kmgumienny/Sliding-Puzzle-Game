@@ -25,7 +25,7 @@ public class PuzzleView extends JPanel {
 		this.setFont(new Font("MS Comic Sans", Font.PLAIN, 48));
 	}
 	
-	public LinkedList<Integer> getPieceSize(){
+	public LinkedList<Integer> getPiecePixelDimenstions(){
 		LinkedList<Integer> sizes = new LinkedList<Integer>();
 		sizes.add(this.boxWidth);
 		sizes.add(this.boxHeight);

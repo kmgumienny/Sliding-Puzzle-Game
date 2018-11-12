@@ -6,6 +6,8 @@ public class Puzzle {
 
 	LinkedList<PuzzlePiece> board = new LinkedList<PuzzlePiece>();
 	LinkedList<PuzzlePiece> original = new LinkedList<PuzzlePiece>();
+	LinkedList<PuzzlePiece> cheat = new LinkedList<PuzzlePiece>();
+
 
 	PuzzlePiece selected;
 
@@ -23,7 +25,7 @@ public class Puzzle {
 	 *  |6 5 x 7|
 	 *  |8 8 9 9|
 	 */
-	public Puzzle(boolean isOneMoveAway) {
+	public Puzzle() {
 		
 		
 		selected = null;
@@ -49,150 +51,113 @@ public class Puzzle {
 		//Key piece
 		PuzzlePiece piece1 = new PuzzlePiece(2, 2);
 		
-		if(isOneMoveAway) {
-			//fifth row
-			board.add(piece8);
-			board.add(piece8);
-			board.add(piece9);
-			board.add(piece9);
-			
-			//Fourth row
-			board.add(piece6);
-			board.add(piece5);
-			board.add(null);
-			board.add(piece7);
-			
-			//Third row
-			board.add(piece3);
-			board.add(piece5);
-			board.add(null);
-			board.add(piece4);
-			
-			//Second row
-			board.add(piece3);
-			board.add(piece1);
-			board.add(piece1);
-			board.add(piece4);
-
+		
 			//First row
 			board.add(piece0);
 			board.add(piece1);
 			board.add(piece1);
 			board.add(piece2);
+		
+			//Second row
+			board.add(piece3);
+			board.add(piece1);
+			board.add(piece1);
+			board.add(piece4);
 			
+			//Third row
+			board.add(piece3);
+			board.add(piece5);
 			board.add(null);
-			board.add(null);
-			board.add(null);
-			board.add(null);
-
-			
-			//Fifth row
-			original.add(piece8);
-			original.add(piece8);
-			original.add(piece9);
-			original.add(piece9);
-					
+			board.add(piece4);
+		
 			//Fourth row
-			original.add(piece6);
-			original.add(piece5);
-			original.add(null);
-			original.add(piece7);
-					
+			board.add(piece6);
+			board.add(piece5);
+			board.add(null);
+			board.add(piece7);
+		
+			//Fourth row
+			board.add(piece8);
+			board.add(piece8);
+			board.add(piece9);
+			board.add(piece9);
+		
+			board.add(null);
+			board.add(null);
+			board.add(null);
+			board.add(null);
+		
+			//First row
+			original.add(piece0);
+			original.add(piece1);
+			original.add(piece1);
+			original.add(piece2);
+				
+			//Second row
+			original.add(piece3);
+			original.add(piece1);
+			original.add(piece1);
+			original.add(piece4);
+				
 			//Third row
 			original.add(piece3);
 			original.add(piece5);
 			original.add(null);
 			original.add(piece4);
+		
+			//Fourth row
+			original.add(piece6);
+			original.add(piece5);
+			original.add(null);
+			original.add(piece7);
+				
+			//Fourth row
+			original.add(piece8);
+			original.add(piece8);
+			original.add(piece9);
+			original.add(piece9);
+
+			original.add(null);
+			original.add(null);
+			original.add(null);
+			original.add(null);
+			
+			//Fifth Row
+			cheat.add(piece8);
+			cheat.add(piece8);
+			cheat.add(piece9);
+			cheat.add(piece9);
+					
+			//Fourth row
+			cheat.add(piece6);
+			cheat.add(piece5);
+			cheat.add(null);
+			cheat.add(piece7);
+					
+			//Third row
+			cheat.add(piece3);
+			cheat.add(piece5);
+			cheat.add(null);
+			cheat.add(piece4);
 							
 			//Second row
-			original.add(piece3);
-			original.add(piece1);
-			original.add(piece1);
-			original.add(piece4);
+			cheat.add(piece3);
+			cheat.add(piece1);
+			cheat.add(piece1);
+			cheat.add(piece4);
 					
 			//First row
-			original.add(piece0);
-			original.add(piece1);
-			original.add(piece1);
-			original.add(piece2);
+			cheat.add(piece0);
+			cheat.add(piece1);
+			cheat.add(piece1);
+			cheat.add(piece2);
 			
-			original.add(null);
-			original.add(null);
-			original.add(null);
-			original.add(null);
-		}else {
+			cheat.add(null);
+			cheat.add(null);
+			cheat.add(null);
+			cheat.add(null);
 		
-			//First row
-			board.add(piece0);
-			board.add(piece1);
-			board.add(piece1);
-			board.add(piece2);
 		
-			//Second row
-			board.add(piece3);
-			board.add(piece1);
-			board.add(piece1);
-			board.add(piece4);
-			
-			//Third row
-			board.add(piece3);
-			board.add(piece5);
-			board.add(null);
-			board.add(piece4);
-		
-			//Fourth row
-			board.add(piece6);
-			board.add(piece5);
-			board.add(null);
-			board.add(piece7);
-		
-			//Fourth row
-			board.add(piece8);
-			board.add(piece8);
-			board.add(piece9);
-			board.add(piece9);
-		
-			board.add(null);
-			board.add(null);
-			board.add(null);
-			board.add(null);
-		
-			//First row
-			original.add(piece0);
-			original.add(piece1);
-			original.add(piece1);
-			original.add(piece2);
-				
-			//Second row
-			original.add(piece3);
-			original.add(piece1);
-			original.add(piece1);
-			original.add(piece4);
-				
-			//Third row
-			original.add(piece3);
-			original.add(piece5);
-			original.add(null);
-			original.add(piece4);
-		
-			//Fourth row
-			original.add(piece6);
-			original.add(piece5);
-			original.add(null);
-			original.add(piece7);
-				
-			//Fourth row
-			original.add(piece8);
-			original.add(piece8);
-			original.add(piece9);
-			original.add(piece9);
-
-			original.add(null);
-			original.add(null);
-			original.add(null);
-			original.add(null);
-		
-		}
 	}
 	
 	
@@ -213,11 +178,17 @@ public class Puzzle {
 		return this.selected;
 	}
 	
-	public void resetPuzzle() {
+	public void resetPuzzle(boolean isCheat) {
 		this.board.clear();
-		for(PuzzlePiece x : original) {
-			this.board.add(x);
-		}
+		
+		if(isCheat)
+			for(PuzzlePiece x : cheat) {
+				this.board.add(x);
+			}
+		else
+			for(PuzzlePiece x : original) {
+				this.board.add(x);
+			}
 	}
 	public LinkedList<Integer> getInstanceOfPiece(PuzzlePiece aPiece){
 		LinkedList<Integer> instances = new LinkedList<Integer>();

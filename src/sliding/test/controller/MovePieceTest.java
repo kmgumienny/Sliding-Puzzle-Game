@@ -1,4 +1,4 @@
-package EntityTests;
+package sliding.test.controller;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
@@ -46,6 +46,7 @@ public class MovePieceTest {
 	@Test
 	public void MoveTest2() {
 		Model model = new Model();
+		model.getPuzzle().resetPuzzle(true);
 		SlidingPuzzleApp app = new SlidingPuzzleApp(model);
 		JButton left = new JButton("<");
 		JButton right = new JButton(">");
@@ -88,6 +89,33 @@ public class MovePieceTest {
 		aMove.movePiece(down);
 		
 		assertTrue(aMove.movePiece(up));	
+	}
+	
+	@Test
+	public void MoveTestWin() {
+		Model model = new Model();
+		model.getPuzzle().resetPuzzle(true);
+		SlidingPuzzleApp app = new SlidingPuzzleApp(model);
+		JButton down = new JButton("v");
+		
+		model.getPuzzle().setSelected(13);
+		//Test with nothing selected
+		MovePiece aMove = new MovePiece(model, app);
+		
+		assertTrue(aMove.movePiece(down));
+	}
+	
+	@Test
+	public void MoveTestFail1() {
+		Model model = new Model();
+		SlidingPuzzleApp app = new SlidingPuzzleApp(model);
+		JButton down = new JButton("v");
+		
+		model.getPuzzle().setSelected(1);
+		//Test with nothing selected
+		MovePiece aMove = new MovePiece(model, app);
+		
+		assertFalse(aMove.movePiece(down));
 	}
 	
 }

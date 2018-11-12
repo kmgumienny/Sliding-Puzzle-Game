@@ -1,4 +1,4 @@
-package ControllerTests;
+package sliding.test.entity;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
@@ -23,14 +23,14 @@ public class ModelTest {
 	public void TestModelMovesReset() {
 		Model someModel = new Model();
 		someModel.increaseMoves();
-		someModel.newPuzzle();
+		someModel.newPuzzle(false);
 		assertEquals(0, someModel.getMoves());
 	}
 	
 	@Test
 	public void TestNewPuzzle() {
 		Model someModel = new Model();
-		Puzzle aPuzzle = new Puzzle(true);
+		Puzzle aPuzzle = new Puzzle();
 		someModel.setPuzzle(aPuzzle);
 		assertEquals(aPuzzle, someModel.getPuzzle());
 	}

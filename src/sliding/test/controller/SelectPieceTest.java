@@ -1,4 +1,4 @@
-package EntityTests;
+package sliding.test.controller;
 
 import static org.junit.Assert.assertEquals;
 

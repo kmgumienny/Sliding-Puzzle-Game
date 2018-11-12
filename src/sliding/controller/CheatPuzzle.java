@@ -1,23 +1,21 @@
 package sliding.controller;
 
 import sliding.boundary.SlidingPuzzleApp;
-import sliding.model.*;
+import sliding.model.Model;
 
-public class ResetPuzzle {
+public class CheatPuzzle {
 
 	SlidingPuzzleApp app;
 	Model model;
 	
-	public ResetPuzzle(Model model, SlidingPuzzleApp app) {
+	public CheatPuzzle(Model model, SlidingPuzzleApp app) {
 		this.model = model;
 		this.app = app;
 	}
 	
-	public void reset() {
-		this.model.newPuzzle(false);
+	public void cheat() {
+		this.model.newPuzzle(true);
 		this.app.reset();
 		this.app.repaint();
 	}
-	
-	
 }

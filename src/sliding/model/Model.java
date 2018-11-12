@@ -6,7 +6,7 @@ public class Model {
 	int moves;
 	
 	public Model() {
-		this.puzzle = new Puzzle(true);
+		this.puzzle = new Puzzle();
 		this.moves = 0;
 	}
 	
@@ -18,8 +18,8 @@ public class Model {
 		return this.puzzle;
 	}
 	
-	public void newPuzzle() {
-		this.puzzle.resetPuzzle();
+	public void newPuzzle(boolean isCheat) {
+		this.puzzle.resetPuzzle(isCheat);
 		this.moves=0;
 	}
 	

@@ -25,9 +25,9 @@ public class SlidingPuzzleApp extends JFrame {
 	Model model;
 	PuzzleView puzzleView;
 	
-	JButton up, down, right, left, reset;
+	JButton up, down, right, left, reset, cheatButton;
 	
-	JLabel moves, winLabel;
+	JLabel moves, winLabel, lblMoves;
 
 
 	
@@ -111,7 +111,15 @@ public class SlidingPuzzleApp extends JFrame {
 			}
 		});
 		
-		
+		JLabel lblMoves = new JLabel("Moves:");
+
+		this.cheatButton = new JButton("Cheat");
+		this.cheatButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new CheatPuzzle(model, SlidingPuzzleApp.this).cheat();
+				
+			}
+		});
 		
 		
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
@@ -122,32 +130,38 @@ public class SlidingPuzzleApp extends JFrame {
 					.addComponent(puzzleView, GroupLayout.PREFERRED_SIZE, 337, GroupLayout.PREFERRED_SIZE)
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 						.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-							.addGroup(gl_contentPane.createSequentialGroup()
-								.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-									.addGroup(gl_contentPane.createSequentialGroup()
-										.addGap(33)
-										.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
-											.addGroup(gl_contentPane.createSequentialGroup()
-												.addComponent(reset))
-											.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-												.addComponent(winLabel, GroupLayout.PREFERRED_SIZE, 168, GroupLayout.PREFERRED_SIZE)
-												.addGroup(gl_contentPane.createSequentialGroup()
-													.addComponent(left)
-													.addGap(33)
-													.addComponent(right)))))
+							.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
+								.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING, false)
 									.addGroup(gl_contentPane.createSequentialGroup()
 										.addGap(18)
-										.addComponent(moves)
-										.addGap(18)))
-								.addContainerGap(31, Short.MAX_VALUE))
+										.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+											.addGroup(gl_contentPane.createSequentialGroup()
+												.addComponent(cheatButton)
+												.addPreferredGap(ComponentPlacement.UNRELATED)
+												.addComponent(reset)
+												.addGap(9))
+											.addGroup(gl_contentPane.createSequentialGroup()
+												.addComponent(lblMoves)
+												.addGap(18)
+												.addComponent(moves))))
+									.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
+										.addGap(35)
+										.addComponent(left)
+										.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+										.addComponent(right)))
+								.addContainerGap(13, Short.MAX_VALUE))
+							.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
+								.addPreferredGap(ComponentPlacement.RELATED)
+								.addComponent(winLabel, GroupLayout.PREFERRED_SIZE, 166, GroupLayout.PREFERRED_SIZE)
+								.addGap(29))
 							.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
 								.addPreferredGap(ComponentPlacement.RELATED)
 								.addComponent(down)
-								.addGap(80)))
+								.addGap(90)))
 						.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
 							.addPreferredGap(ComponentPlacement.RELATED)
 							.addComponent(up)
-							.addGap(80))))
+							.addGap(90))))
 		);
 		gl_contentPane.setVerticalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
@@ -157,19 +171,22 @@ public class SlidingPuzzleApp extends JFrame {
 						.addComponent(puzzleView, GroupLayout.DEFAULT_SIZE, 556, Short.MAX_VALUE)
 						.addGroup(gl_contentPane.createSequentialGroup()
 							.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+								.addComponent(lblMoves)
 								.addComponent(moves))
-							.addGap(59)
-							.addComponent(winLabel, GroupLayout.PREFERRED_SIZE, 76, GroupLayout.PREFERRED_SIZE)
-							.addGap(54)
+							.addGap(102)
+							.addComponent(winLabel, GroupLayout.PREFERRED_SIZE, 51, GroupLayout.PREFERRED_SIZE)
+							.addGap(30)
 							.addComponent(up)
-							.addPreferredGap(ComponentPlacement.UNRELATED)
-							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+							.addGap(18)
+							.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
 								.addComponent(right)
 								.addComponent(left))
 							.addPreferredGap(ComponentPlacement.UNRELATED)
 							.addComponent(down)
 							.addPreferredGap(ComponentPlacement.RELATED, 211, Short.MAX_VALUE)
-							.addComponent(reset)))
+							.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+								.addComponent(cheatButton)
+								.addComponent(reset))))
 					.addContainerGap())
 		);
 		contentPane.setLayout(gl_contentPane);
