@@ -10,9 +10,6 @@ public class PuzzlePiece {
 		this.width = width;
 		this.height = height;
 	}
-	Boolean isKeyPiece() {
-	    return (this.width == 2 && this.height ==2);
-	}
 	
 	public int getWidth() {
 		return this.width;

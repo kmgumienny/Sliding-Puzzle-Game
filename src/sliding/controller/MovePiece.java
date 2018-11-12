@@ -18,10 +18,10 @@ public class MovePiece {
 		this.app = app;
 	}
 	
-	public void movePiece(JButton aButton) {
+	public boolean movePiece(JButton aButton) {
 		PuzzlePiece selected = model.getPuzzle().getSelected();
 		if(selected == null) {
-			return;
+			return false;
 		}else {
 			
 			String direction = aButton.getText();
@@ -35,7 +35,7 @@ public class MovePiece {
 
 			if(direction.equals("^")) {
 				if(top)
-					return;
+					return false;
 				else {
 					tryMove(selected, board, instances, -4, false);
 				}
@@ -48,7 +48,7 @@ public class MovePiece {
 					
 				}
 				if(bottom) {
-					return;
+					return false;
 				}
 				else {
 					tryMove(selected, board, instances, 4, true);
@@ -56,7 +56,7 @@ public class MovePiece {
 			}
 			if(direction.equals(">")) {
 				if(farRight)
-					return;
+					return false;
 				else {
 					tryMove(selected, board, instances, 1, true);
 				}
@@ -64,11 +64,12 @@ public class MovePiece {
 			}
 			if(direction.equals("<")) {
 				if(farLeft)
-					return;
+					return false;
 				else {
 					tryMove(selected, board, instances, -1, false);
 				}
 			}
+			return true;
 		}
 		}
 	public void tryMove(PuzzlePiece selected, LinkedList<PuzzlePiece> board, LinkedList<Integer> instances, int direction, boolean downOrRight) {
