@@ -15,6 +15,7 @@ public class CheatPuzzle {
 	
 	public void cheat() {
 		this.model.newPuzzle(true);
+		this.model.getPuzzle().setSelected(-1);
 		this.app.reset();
 		this.app.repaint();
 	}

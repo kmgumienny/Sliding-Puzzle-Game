@@ -171,6 +171,10 @@ public class Puzzle {
 	}
 	
 	public void setSelected(int location) {
+		if(location == -1) {
+			this.selected = null;
+			return;
+		}
 		this.selected = board.get(location);
 	}
 	

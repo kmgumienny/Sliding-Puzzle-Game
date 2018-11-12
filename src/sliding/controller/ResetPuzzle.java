@@ -15,6 +15,7 @@ public class ResetPuzzle {
 	
 	public void reset() {
 		this.model.newPuzzle(false);
+		this.model.getPuzzle().setSelected(-1);
 		this.app.reset();
 		this.app.repaint();
 	}

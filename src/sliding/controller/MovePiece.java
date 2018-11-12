@@ -47,7 +47,8 @@ public class MovePiece {
 					app.gameWin();
 					return true;
 					
-				}
+				}else if(selected.getHeight() == 2 && selected.getWidth() == 2)
+					return false;
 				if(bottom) {
 					return false;
 				}
