@@ -5,6 +5,10 @@ public class Model {
 	Puzzle puzzle;
 	int moves;
 	
+	/*
+	 * The model holds the puzzle and the number of moves
+	 * made
+	 */
 	public Model() {
 		this.puzzle = new Puzzle();
 		this.moves = 0;

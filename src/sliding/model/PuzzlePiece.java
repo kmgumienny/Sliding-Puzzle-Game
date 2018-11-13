@@ -4,7 +4,6 @@ public class PuzzlePiece {
 
 	int width;
 	int height;
-	int id;
 
 	public PuzzlePiece(int width, int height) {
 		this.width = width;

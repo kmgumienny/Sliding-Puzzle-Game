@@ -35,6 +35,7 @@ public class SlidingPuzzleApp extends JFrame {
 		return puzzleView;
 	}
 	
+	//disables the move buttons
 	public void reset() {
 		this.up.setEnabled(true);
 		this.down.setEnabled(true);
@@ -44,10 +45,17 @@ public class SlidingPuzzleApp extends JFrame {
 		updateMoves();
 	}
 	
+	
+	//Updates the jlabel holding the number of moves made
 	public void updateMoves() {
 		this.moves.setText(Integer.toString(model.getMoves()));
 	}
 	
+	/*
+	 * When the 2x2 piece is moved to the bottom of the board and goes
+	 * down the middle to win, the win label is shown and the
+	 * move buttons are disabled
+	 */
 	public void gameWin() {
 		this.winLabel.setVisible(true);
 		this.up.setEnabled(false);
@@ -56,7 +64,9 @@ public class SlidingPuzzleApp extends JFrame {
 		this.right.setEnabled(false);
 	}
 
-	
+	/*
+	 * Creates the interface for the app
+	 */
 	
 	public SlidingPuzzleApp(Model model) {
 		this.model = model;

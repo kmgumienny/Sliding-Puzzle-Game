@@ -13,6 +13,10 @@ public class CheatPuzzle {
 		this.app = app;
 	}
 	
+	/*
+	 * resets the puzzle to the cheat configuration and removes
+	 * the selected piece
+	 */
 	public void cheat() {
 		this.model.newPuzzle(true);
 		this.model.getPuzzle().setSelected(-1);

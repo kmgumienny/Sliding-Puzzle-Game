@@ -18,6 +18,14 @@ public class MovePiece {
 		this.app = app;
 	}
 	
+	/*
+	 * This method is called when a button is clicked. It first checks to see
+	 * if a piece is selected. It then determines where it is by getting its
+	 * instances in the board linkedlist. It determines if the piece is on an edge 
+	 * and prevents the piece from moving against that direction. If the board is
+	 * null in the direction the piece was selected to be moved, the puzzle piece
+	 * is moved and the board is updated. There is a lot of arithmetic here 
+	 */
 	public boolean movePiece(JButton aButton) {
 		PuzzlePiece selected = model.getPuzzle().getSelected();
 		if(selected == null) {
@@ -74,7 +82,13 @@ public class MovePiece {
 			return true;
 		}
 		}
-	public void tryMove(PuzzlePiece selected, LinkedList<PuzzlePiece> board, LinkedList<Integer> instances, int direction, boolean downOrRight) {
+	
+	/*
+	 * Checks to see if the board is null in the direction a 
+	 * piece is being moved, the board makes the move
+	 */
+	public void tryMove(PuzzlePiece selected, LinkedList<PuzzlePiece> board, 
+			LinkedList<Integer> instances, int direction, boolean downOrRight) {
 		int index;
 		int canMove = 1;
 		
@@ -91,8 +105,14 @@ public class MovePiece {
 		}
 		
 	}
+	/*
+	 * the piece is now moved in the direction the user selected. If the piece is 
+	 * moving right or down, the right/bottom-most cell of piece is moved first 
+	 * and vice-versa for the highest/left-most cell if the move is left or up
+	 */
 	
-	public void makeMove(PuzzlePiece selected, LinkedList<PuzzlePiece> board, LinkedList<Integer> instances, int direction, boolean downOrRight) {
+	public void makeMove(PuzzlePiece selected, LinkedList<PuzzlePiece> board, 
+			LinkedList<Integer> instances, int direction, boolean downOrRight) {
 		if(!downOrRight)	
 			for(int i = 0; i < instances.size(); i++) {
 				int index = instances.get(i);

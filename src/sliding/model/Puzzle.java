@@ -4,6 +4,12 @@ import java.util.LinkedList;
 
 public class Puzzle {
 
+	/*
+	 * When a puzzle is created, the board is created and two
+	 * additional linkedlist are created, one that sets the original
+	 * board back to starting position and one that sets the board
+	 * to a position that is one away from winning
+	 */
 	LinkedList<PuzzlePiece> board = new LinkedList<PuzzlePiece>();
 	LinkedList<PuzzlePiece> original = new LinkedList<PuzzlePiece>();
 	LinkedList<PuzzlePiece> cheat = new LinkedList<PuzzlePiece>();
@@ -26,12 +32,8 @@ public class Puzzle {
 	 *  |8 8 9 9|
 	 */
 	public Puzzle() {
-		
-		
 		selected = null;
-		//PuzzlePiece constructor (int width, int height)
-		
-		
+		//PuzzlePiece constructor (int width, int height
 		
 		//1x1 piece
 		PuzzlePiece piece0 = new PuzzlePiece(1, 1);
@@ -50,7 +52,6 @@ public class Puzzle {
 
 		//Key piece
 		PuzzlePiece piece1 = new PuzzlePiece(2, 2);
-		
 		
 			//First row
 			board.add(piece0);
@@ -160,15 +161,21 @@ public class Puzzle {
 		
 	}
 	
-	
-	//TODO
+	//Returns the piece in a given row and column from the linkedlist
 	public PuzzlePiece cell(int r, int c) {
 		return this.board.get((r*4)+c);
 	}
 	
+	//Returns the linkedlist holding puzzlepieces
 	public LinkedList<PuzzlePiece> getBoard(){
 		return this.board;
 	}
+	
+	/*
+	 * Sets a piece at some location as the selected piece that
+	 * ca then be moved. If -1 is passed (when resetting a board
+	 * or creating a cheat board) is sets the selected piece to null
+	 */
 	
 	public void setSelected(int location) {
 		if(location == -1) {
@@ -178,9 +185,16 @@ public class Puzzle {
 		this.selected = board.get(location);
 	}
 	
+	//Returns the selected PuzzlePiece
 	public PuzzlePiece getSelected() {
 		return this.selected;
 	}
+	
+	/*
+	 * Clears the board and adds the puzzlepieces back 
+	 * in either the original order or in the cheat mode
+	 * order
+	 */
 	
 	public void resetPuzzle(boolean isCheat) {
 		this.board.clear();
@@ -194,6 +208,11 @@ public class Puzzle {
 				this.board.add(x);
 			}
 	}
+	
+	/*
+	 * goes through the entire board and finds the positions of any given
+	 * piece
+	 */
 	public LinkedList<Integer> getInstanceOfPiece(PuzzlePiece aPiece){
 		LinkedList<Integer> instances = new LinkedList<Integer>();
 		for(int i = 0; i <20; i++) {

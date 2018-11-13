@@ -25,6 +25,7 @@ public class PuzzleView extends JPanel {
 		this.setFont(new Font("MS Comic Sans", Font.PLAIN, 48));
 	}
 	
+	//Returns how large a piece cell is on a given display
 	public LinkedList<Integer> getPiecePixelDimenstions(){
 		LinkedList<Integer> sizes = new LinkedList<Integer>();
 		sizes.add(this.boxWidth);
@@ -33,10 +34,20 @@ public class PuzzleView extends JPanel {
 		
 	}
 	
+	//returns the offset between puzzle pieces
 	public int getOffSet() {
 		return this.offSet;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * @see javax.swing.JComponent#paintComponent(java.awt.Graphics)
+	 * This is the function to draw the puzzle within the JPanel
+	 * The function gets the board and goes cell by cell and checks whether
+	 * a piece was already drawn or whether the cell is empty and 
+	 * if neither condition is met, the piece is drawn based on its height and 
+	 * width
+	 */
 	@Override
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);

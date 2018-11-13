@@ -15,6 +15,14 @@ public class SelectPiece extends MouseAdapter {
 		this.app = app;
 	}
 	
+	/*
+	 * (non-Javadoc)
+	 * @see java.awt.event.MouseAdapter#mouseClicked(java.awt.event.MouseEvent)
+	 * This function gets the position of the mouse on the JPanel to determine
+	 * which piece was selected. The row is calculated by getting the standard
+	 * size of a cell piece including the offset and the height for row and
+	 * width for column selected
+	 */
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		int offSet = this.app.getPuzzleView().getOffSet();
